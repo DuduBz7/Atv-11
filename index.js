@@ -1,3 +1,4 @@
+import { selectUsuarios, selectUsuario, insertUsuario } from "./bd.js";
 import express from "express";      // Requisição do pacote do express
 const app = express();              // Instancia o Express
 const port = 3000;                  // Define a porta
@@ -18,7 +19,6 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-import { selectUsuarios, selectUsuario } from "./bd.js";
 
 app.get("/usuarios", async (req, res) => {
   console.log("Rota GET/usuarios solicitada");
@@ -44,7 +44,6 @@ app.get("/usuario/:id", async (req, res) => {
 
 app.use(express.json());
 
-import { selectUsuarios, selectUsuario, insertUsuario } from "./bd.js";
 
 app.post("/usuario", async (req, res) => {
   console.log("Rota POST /usuario solicitada");
