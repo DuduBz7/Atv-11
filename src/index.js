@@ -6,7 +6,7 @@ import roteadorLogin from "./routes/login.js";
 const app = express();              // Instancia o Express
 const port = 3000;                  // Define a porta
 app.use(express.json());
-
+app.use(express.urlencoded({ extended: true }));
 app.use(roteadorUsuario);
 
 app.get("/", (req, res) => {        // Cria a rota da raiz do projeto
