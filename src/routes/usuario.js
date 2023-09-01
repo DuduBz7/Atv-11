@@ -9,7 +9,7 @@ import {
     updateUsuario,
   } from "../db/index.js";
 
-router.get("/usuarios", async (req, res) => {
+router.get("/usuario", async (req, res) => {
     console.log("Rota GET/usuarios solicitada");
     try {
       const usuarios = await selectUsuarios();
@@ -30,8 +30,6 @@ router.get("/usuarios", async (req, res) => {
       res.status(error.status || 500).json({ message: error.message || "Erro!" });
     }
   });
-  
-  router.use(express.json());
   
   
   router.post("/usuario", async (req, res) => {
@@ -57,10 +55,8 @@ router.get("/usuarios", async (req, res) => {
       res.status(error.status || 500).json({ message: error.message || "Erro!" });
     }
   });
-  router.listen(port, () => {            // Um socket para "escutar" as requisições
-    console.log(`Serviço escutando na porta:  ${port}`);
-  });
-  
+
+
   //index.js
   router.patch("/usuario", async (req, res) => {
     console.log("Rota PATCH /usuario solicitada");
